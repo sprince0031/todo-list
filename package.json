@@ -1,0 +1,25 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "Simple todo list app to learn learn about ejs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sprince0031/todo-list.git"
+  },
+  "keywords": [
+    "todo",
+    "list",
+    "EJS",
+    "templates"
+  ],
+  "author": "siddharthprince31@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sprince0031/todo-list/issues"
+  },
+  "homepage": "https://github.com/sprince0031/todo-list#readme"
+}
