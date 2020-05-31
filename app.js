@@ -56,7 +56,7 @@ app.get('/', (req, res) => {
                 res.redirect('/');
             } else {
                 res.render('list', {
-                    day: "Today",
+                    title: "Today",
                     listItems: foundItems
                 });
             }
@@ -91,6 +91,40 @@ app.post('/delete', (req, res) => {
         res.redirect('/')
     });
 });
+
+app.get('/:listname', (req, res) => {
+    const List = mongoose.model(`${req.params.listname}item`, itemsSchema);
+
+    List.find({}, (err, tasks) => {
+        if (err) {
+            console.log(err);
+        } else {
+            if (tasks.length === 0) {
+                const initItem = new List({
+                    item: `Welcome to your ${req.params.listname} list.`
+                });
+                initItem.save();
+                res.redirect(`/${req.params.listname}`);
+            } else {
+                res.render('list', {
+                    title: req.params.listname,
+                    listItems: tasks
+                })
+            }
+        }
+    })
+})
+
+app.post('/:listname', (req, res) => {
+    const item = req.body.item_name;
+    const List = mongoose.model(`${req.params.listname}item`, itemsSchema, `${req.params.listname}items`);
+    const newItem = new List({
+        item: item
+    });
+
+    newItem.save();
+    res.redirect(`/${req.params.listname}`)
+})
 
 app.get('/about', (req, res) => {
     res.render('about');

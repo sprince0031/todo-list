@@ -1,6 +1,6 @@
 <%- include("header") -%>
     <div class="box" id="heading">
-        <h1><%= day %></h1>
+        <h1><%= title %></h1>
     </div>
     <div class="box">
         <% listItems.forEach(element => { %>
@@ -12,7 +12,7 @@
             </form>
             
         <% }); %>
-        <form class="item" action="/" method="POST">
+        <form class="item" action="<% `/${(title==='Today')?'':title}` %>" method="POST">
             <input type="text" name="new_item" placeholder="New Item" autocomplete="off" required>
             <button type="submit">+</button>
         </form>
