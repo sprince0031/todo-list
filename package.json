@@ -22,8 +22,8 @@
   },
   "homepage": "https://github.com/sprince0031/todo-list#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.20.3",
     "ejs": "^3.1.3",
-    "express": "^4.17.1"
+    "express": "^4.21.0"
   }
 }
